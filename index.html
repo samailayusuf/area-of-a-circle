@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circle (Area - Circumference)</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+</head>
+<body>
+
+
+    <h3 class="text-center mt-3 mb-3"> Circle (Area - Circumference)</h3>
+
+<form class="container text-center" style="width:62%">
+  <div class="form-group mb-3">
+    <input type="number" class="form-control" id="radius" placeholder="Enter The Radius">
+  </div>
+
+  <div class="radio">
+      <label><input type="radio" name="optradio"  id="area">Area </label>
+      <label><input type="radio" name="optradio" id="circumference">Circumference</label>
+  </div>
+  
+   
+  
+  <button type="button" onclick="calculate()" class="btn btn-default">Calculate</button>
+</form>
+
+<div id="" class="container mt-5" style="border: 1px solid #ccc; min-height: 200px;margin-top:15px;width:60%;padding:0; border-radius:5px;">
+    <h4 style="border-bottom: 1px solid #ccc; text-align: center; padding:10px;">Output</h4>
+    
+    <h5 id="output"></h5>
+  
+</div>  
+  
+  
+  <script>
+    function calculate(){
+  var radius = document.getElementById('radius').value;
+  
+  var area = document.getElementById('area').checked;
+  var circumference = document.getElementById('circumference').checked;
+  var output = document.getElementById('output');
+  var PI = 3.142;
+
+  var result = 0;
+
+  if(area){
+     result = ( radius > 0 ) ? (PI * (radius * radius)).toFixed(2) : "radius should be a positive number";
+     output.innerHTML = result;
+  }else if(circumference){
+     result = (radius > 0) ?  (2* PI * (radius)).toFixed(2) : "radius should be a positive number"; 
+     output.innerHTML = result;
+  }else{
+      result = "You must select the options above!"
+      output.innerHTML = result;
+  }
+
+  output.style.textAlign = 'center';
+  
+  
+}  
+  </script>
+
+
+    
+</body>
+</html>
